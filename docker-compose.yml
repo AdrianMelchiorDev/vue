@@ -1,0 +1,36 @@
+web:
+  build: .
+  dockerfile: Dockerfile
+  ports:
+    - "9090:80"
+  links:
+    - db
+  volumes:
+    - .:/var/www:cached
+  environment:
+    - XDEBUG_CONFIG=idekey=PHPSTORM remote_host=host.docker.internal
+    - PHP_IDE_CONFIG=serverName=mein-schulessen
+db:
+  image: mariadb
+  restart: always
+  volumes:
+    - ./mysql:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: admin
+    MYSQL_PASSWORD: test
+    MYSQL_DATABASE: vue-dev
+  ports:
+    - "9091:3306"
+testdb:
+  image: mariadb
+  restart: always
+  volumes:
+    - ./mysql_test:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: admin
+    MYSQL_PASSWORD: test
+    MYSQL_DATABASE: vue-test
+  ports:
+    - "9092:3306"

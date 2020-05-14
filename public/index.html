@@ -8,12 +8,22 @@
 </head>
 <body>
 <div id="app">
-    <div>
-        {{ message }}
-    </div>
-    <span v-if="seen">Now you see me!</span>
-    <span v-else="seen">I'm gone!</span>
-
+    <ol>
+        <!--
+          Now we provide each todo-item with the todo object
+          it's representing, so that its content can be dynamic.
+          We also need to provide each component with a "key",
+          which will be explained later.
+        -->
+        <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id"
+        ></todo-item>
+    </ol>
+    {{ this.groceryList[0].text }}
+    {{ this.dump }}
+    <input v-on:click="">
 </div>
 <script src="js/index.js"></script>
 </body>

@@ -26,3 +26,6 @@ app.$watch('dump', function (newValue, oldValue) {
 // data.dump = 'Dummy';
 c = console;
 c.log(app.groceryList[0] == data.groceryList[0]);
+
+
+// https://vuejs.org/v2/guide/instance.html

@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
 /dist
-
+/mysql
+/mysql_test
 # local env files
 .env.local
 .env.*.local

@@ -29,10 +29,10 @@ RUN curl -sS https://getcomposer.org/installer \
 RUN apt-get install -y gnupg
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
  && apt-get install -y nodejs
-RUN apt-get install git
-RUN git clone https://github.com/cloudhead/vows.git
-RUN cd vows
-RUN npm install
+#RUN apt-get install git
+#RUN git clone https://github.com/cloudhead/vows.git
+#RUN cd vows
+#RUN npm install
 
 # install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \

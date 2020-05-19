@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formBindings</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{topic}}</h1>
+    <ul>
+        <li v-for="item in intro"><span v-html="item.text"></span></li>
+    </ul>
+    <span>type="text"</span>
+    <input v-model="message" placeholder="edit me!">
+    <p>Message is: {{ message }}</p>
+    <br>
+    <span>Multiline message is:</span>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+    <p style="white-space: pre-line;">{{ message }}</p>
+    <br> <br> <br>
+    <div v-for="name of names">
+        <input type="checkbox" :id="name" :value="name" v-model="checkedNames"><label :for="name">{{name}}</label>
+    </div>
+    <span>Checked Names are: {{ checkedNames}}</span>
+    <br> <br> <br>
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>Picked: {{ picked }}</span>
+    <br> <br> <br>
+    <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+</div>
+<script src="../js/formBindings.js"></script>
+</body>
+</html>

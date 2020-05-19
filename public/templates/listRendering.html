@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ListRendering</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <h1>{{ topic }}</h1>
+    <span>You can use <b>of</b> or <b>in</b>@ v-for="item OF items" OR use v-for="item IN items"</span>
+    <div>
+        <button @click="pushItUp()" value="Add item">PushItUp!!</button>
+        <ol>
+            <li v-for="item in messageItems">
+                {{ item.message }}
+            </li>
+        </ol>
+    </div>
+    <ol>
+        <li v-for="(propertyValue, propertyName, propertyIndex) in object">
+            {{ propertyIndex }} - {{ propertyName }} - {{ propertyValue }}
+        </li>
+    </ol>
+
+
+    <ul>
+        <template v-for="item in messageItems">
+            <li>{{ item.message }}</li>
+            <li class="divider" role="presentation"></li>
+        </template>
+    </ul>
+    <div>
+        <span v-for="n in 10">{{ n }} </span>
+    </div>
+</div>
+<script src="../js/listRendering.js"></script>
+
+</body>
+</html>

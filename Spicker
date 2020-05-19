@@ -1,0 +1,35 @@
+Computed:
+Computed properties are cached based on their reactive dependencies! This also means the
+following computed property will never update, because Date.now() is not a reactive
+dependency. Computed Values are Getter only!
+
+var vm = new Vue({
+  el: '#demo',
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar'
+  },
+  computed: {
+    fullName: {
+        get: {
+            function () {
+              return this.firstName + ' ' + this.lastName
+            }
+        }
+        set: function(newValue) {
+            var names = newValue.split(' ')
+            this.firstName
+        }
+    }
+  }
+})
+
+computed: {
+  now: function () {
+    return Date.now()
+  }
+}
+
+Method:
+In comparison, a method invocation will always run the function whenever a re-render
+happens.

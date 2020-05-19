@@ -3,28 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue.js try</title>
-    <link rel="stylesheet" href="css/index.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+
 <div id="app">
-    <ol>
-        <!--
-          Now we provide each todo-item with the todo object
-          it's representing, so that its content can be dynamic.
-          We also need to provide each component with a "key",
-          which will be explained later.
-        -->
-        <todo-item
-                v-for="item in groceryList"
-                v-bind:todo="item"
-                v-bind:key="item.id"
-        ></todo-item>
-    </ol>
-    {{ this.groceryList[0].text }}
-    {{ this.dump }}
-    <input v-on:click="">
+    <h1>{{ topic }}</h1>
+    <h3>Chapters:</h3>
+    <ul>
+        <link-item
+                v-for="item in formattedData"
+                :href="item.href"
+                :styled-href="item.styledHref"
+                :key="item.id"
+        ></link-item>
+    </ul>
 </div>
+
 <script src="js/index.js"></script>
 </body>
 </html>

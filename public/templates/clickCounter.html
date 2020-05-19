@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ListRendering</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <h1>{{ topic }}</h1>
+    <button @click="counter += 1">Add 1</button>
+    <button @click="counter += 1">Add 1</button>
+    <span>The button has been clicked {{ counter}} times</span>
+
+    <br> <br> <br>
+
+    <button @click="warn(warning, $event)">
+        Submit
+    </button>
+    <button @click="noWarning=false">
+        Reset
+    </button>
+    <div id="warning" v-show="noWarning">{{ warning }}</div>
+</div>
+<script src="../js/clickCounter.js"></script>
+</body>
+</html>

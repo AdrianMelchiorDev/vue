@@ -1,31 +1,33 @@
-Vue.component('todo-item', {
-    // The todo-item component now accepts a
-    // "prop", which is like a custom attribute.
-    // This prop is called todo.
-    props: ['todo'],
-    template: '<li id="">{{ todo.text }}</li>',
+Vue.component('link-item', {
+    props: ['href', 'styledHref'],
+    template: '<li><a :href="href">{{ styledHref }}</a></li>'
 })
 
-var data = {
-    dump: '',
-    groceryList: [
-        {id: 0, text: 'Vegetables'},
-        {id: 1, text: 'Cheese'},
-        {id: 2, text: 'Whatever else humans are supposed to eat'}
-    ]
-};
-
-var app = new Vue({
+var vm = new Vue({
     el: '#app',
-    data: data
+    data: {
+        topic:'Index of Vue.js Tutorials',
+        linkList: [
+            {id: 0, name: 'lists'},
+            {id: 1, name: 'computed'},
+            {id: 2, name: 'components'},
+            {id: 3, name: 'listRendering'},
+            {id: 4, name: 'todo'},
+            {id: 5, name: 'clickCounter'},
+            {id: 6, name: 'formBindings'},
+        ],
+    },
+    computed: {
+        formattedData(){
+            if (!this.linkList) return []
+
+            return this.linkList.map(ll => {
+                return {
+                    href: 'templates/' + ll.name + '.html',
+                    id: ll.id,
+                    styledHref: ll.name.charAt(0).toUpperCase()+ll.name.slice(1),
+                }
+            })
+        }
+    }
 })
-
-app.$watch('dump', function (newValue, oldValue) {
-    alert(newValue)
-})
-// data.dump = 'Dummy';
-c = console;
-c.log(app.groceryList[0] == data.groceryList[0]);
-
-
-// https://vuejs.org/v2/guide/instance.html
